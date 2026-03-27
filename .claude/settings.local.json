@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "mcp__serena__activate_project",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Skill(humanization-review)",
+      "Skill(parallel-refactor)"
+    ],
+    "deny": []
+  },
+  "preferences": {
+    "outputStyle": "explanatory",
+    "autoUpdates": false
+  },
+  "remote": {
+    "defaultEnvironmentId": "env_01A7vRYbG3QUdY1RHnudoLax"
+  }
+}
