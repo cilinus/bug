@@ -443,6 +443,36 @@ Mode A Phase 6의 퇴고 체크리스트 부분과 동일하게 적용.
 - 리뷰 점수 (인간화/일관성, 선택적 재미평가)
 - 업데이트된 추적 파일 목록
 
+## Task Tracking (파이프라인 진행 추적)
+
+파이프라인 실행 시 TaskCreate/TaskUpdate로 각 Phase를 추적한다. 사용자가 진행 상황을 실시간으로 파악할 수 있게 한다.
+
+### Mode A Task 생성 시점
+
+파이프라인 시작 시 아래 Task를 일괄 생성:
+
+| Task | Subject | 생성 시점 | 완료 시점 |
+|------|---------|----------|----------|
+| T1 | Context Loading + Pre-Flight | Phase 1 시작 | Phase 1 완료 |
+| T2 | Outline Creation | Phase 2 시작 | 사용자 확인 후 |
+| T3 | Parallel Writing (씬 1/2/3) | Phase 3 시작 | 3개 sub-agent 모두 완료 |
+| T4 | Assembly + Mechanical Scan | Phase 4 시작 | 초고 저장 완료 |
+| T5 | Parallel Review (R1/R2/R3) | Phase 5 시작 | 리뷰 sub-agent 모두 완료 |
+| T6 | 수정 + 퇴고 (1차수정) | Phase 6 시작 | v2 저장 완료 |
+| T7 | File Updates | Phase 7 시작 | Updater-A/B 완료 |
+| T8 | Verification | Phase 8 시작 | 최종 보고 완료 |
+
+### Mode B Task 생성
+
+- Phase 0에서 수정 대상 화별로 Task 생성
+- 각 Teammate/Sub-agent에 Task 할당 (owner 설정)
+- Phase별 blockedBy 관계 설정 (Phase 2는 Phase 1 완료 후)
+
+### 원칙
+- Task 시작 시 `in_progress`, 완료 시 즉시 `completed`로 업데이트
+- Sub-agent 실패 시 해당 Task에 실패 사유 기록 (description 업데이트)
+- 전체 파이프라인 완료 시 모든 Task가 completed 상태여야 함
+
 ## Notes
 - Mode A의 Phase 3 병렬 집필은 컨텍스트가 충분할 때만 유효. 컨텍스트 부족 시 순차 집필로 전환.
 - Mode B의 Team 생성은 Agent Teams 활성 시에만. 비활성이면 Sub-agent Fallback.

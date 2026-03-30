@@ -61,6 +61,7 @@ For detailed rules, refer to the Context Map below.
 │   ├── editor-critic.md           # Pacing, pattern repetition, market evaluation
 │   ├── general-reader.md          # General reader persona (20-30), immersion check
 │   └── genre-reader.md            # Genre reader persona (20-35), 타워/먹치킨 expertise
+├── hooks/                         # Claude Code hooks (PostToolUse, PreToolUse, Stop)
 ├── rules/                         # AUTO-INJECTED to all agents
 │   └── core-rules.md             # 먹치킨 전투, 톤 보존, 산문, 대화, 능력 성장 — ~260줄
 ├── reference/                     # NOT auto-injected — Read on demand
@@ -79,7 +80,8 @@ For detailed rules, refer to the Context Map below.
 │   ├── tower-monsters.md          # 타워 1~100층 몬스터 설정 압축본 (집필 시 참조)
 │   ├── villain-pov.md             # 강현우/백서진/니콜라이 POV씬 배치표
 │   ├── party-members.md           # 한소라/정해민/윤기택 프로필, 아크, 전투역할
-│   └── humor-codes.md            # 대화 유머코드 8종(H1~H8), 빈도 가이드, 조합
+│   ├── humor-codes.md            # 대화 유머코드 8종(H1~H8), 빈도 가이드, 조합
+│   └── harness-automation.md     # Hooks, Git Hooks, 스케줄, Task 시스템 설정 일람
 └── skills/
     ├── scene-writer/SKILL.md      # Scene writing workflow
     ├── character-creator/SKILL.md # Character creation workflow
